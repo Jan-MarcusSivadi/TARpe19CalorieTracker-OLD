@@ -22,5 +22,11 @@ body {
     margin: var(--margin);
 }
 
+/*
+#form1 form {
+    display: block;
+    text-align: center;
+}
+
 
 

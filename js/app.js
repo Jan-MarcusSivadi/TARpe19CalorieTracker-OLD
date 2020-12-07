@@ -9,7 +9,13 @@ let total = 0;
 foodName.value = '';
 foodCalories.value = 0;
 
-const snackbar = document.querySelector('#snackbar');
+const Snackbar = document.querySelector('#snackbar');
+
+function mySnackbar(message) {
+    Snackbar.innerHTML = message;
+    Snackbar.className = "show";
+    setTimeout(function () { Snackbar.className = Snackbar.className.replace("show", ""); }, 3000);
+}
 
 buttonAdd.addEventListener('click', (event) => {
     if (foodName.value != '' && foodCalories.value != 0) {
@@ -33,8 +39,10 @@ buttonAdd.addEventListener('click', (event) => {
         event.preventDefault();
     }
     else {
-        myFunction();
+        mySnackbar("Invalid Form fields");
     }
+    
+    if(foodCalories.value == 0) mySnackbar("Calories value must be above 0");
 });
 
 buttonClear.addEventListener('click', (event) => {
