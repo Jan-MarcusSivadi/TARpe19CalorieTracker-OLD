@@ -9,8 +9,10 @@ let total = 0;
 foodName.value = '';
 foodCalories.value = 0;
 
+const snackbar = document.querySelector('#snackbar');
+
 buttonAdd.addEventListener('click', (event) => {
-    if (foodName.value != '') {
+    if (foodName.value != '' && foodCalories.value != 0) {
         let mealName = foodName.value;
         let mealCalories = parseInt(foodCalories.value);
 
@@ -31,19 +33,7 @@ buttonAdd.addEventListener('click', (event) => {
         event.preventDefault();
     }
     else {
-        let html = `
-        <div class="toast" data-autohide="false">
-            <div class="toast-header">
-            Toast Header
-            </div>
-            <div class="toast-body">
-            Some text inside the toast body
-            </div>
-        </div>
-        `;
-        document.body.innerHTML += html;
-
-        $('.toast').toast('show');
+        myFunction();
     }
 });
 
